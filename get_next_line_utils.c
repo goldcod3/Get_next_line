@@ -6,7 +6,7 @@
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:39:28 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/07/06 19:41:01 by lgomes-o         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:26:49 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,43 +22,51 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strchr(char *str, int c)
 {
-	void	*mem;
-	char	*str;
-
-	mem = (void *) malloc(count * size);
-	str = (char *)mem;
-	while (count > 0)
-	{
-		*(str + count) = '\0';
-		count--;
-	}
-	return (mem);
-}
-
-char	*ft_substr(char *s, size_t start, size_t len)
-{
-	char	*sub;
 	size_t	i;
 
-	if (s == NULL)
-		return (NULL);
-	sub = (char *) ft_calloc(len + 1, sizeof(char));
-	if (sub == NULL)
-		return (NULL);
 	i = 0;
-	if (!(start > ft_strlen(s)))
+	if (c == '\0')
+		return (((char *)str + i));
+	while (*(str + i) != '\0')
 	{
-		while (i < len)
-		{
-			*(sub + i) = *(s + start);
-			start++;
-			i++;
-		}
+		if (*(str + i) == (char)c)
+			return (((char *)str + i));
+		i++;
 	}
-	*(sub + i) = '\0';
-	return (sub);
+	return (NULL);
 }
 
+char	*ft_strjoin(char *s1, char *s2)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
 
+	if (s1 == NULL)
+	{
+		s1 = (char *) malloc(1 * sizeof(char));
+		*(s1 + 0) = '\0';
+	}
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	str = (char *) malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	if (s1)
+	{
+		while (*(s1 + i++) != '\0')
+			*(str + i) = *(s1 + i);
+	}
+	j = 0;
+	while (*(s2 + j) != '\0')
+	{
+		*(str + i) = *(s2 + j);
+		i++;
+		j++;
+	}
+	*(str + i) = '\0';
+	return (str);
+}

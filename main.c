@@ -10,18 +10,18 @@ int	main(void)
 	i = 0;
 	fd = 0;
 	fd = open("/Users/lgomes-o/Documents/repos/get_next_line/dic.txt", O_RDONLY);
-	/*
+
 	line = get_next_line(fd);
 	printf("%s\n", line);
 	free(line);
-	*/
-	while (i < 4)
+	/*
+	while (i < 3)
 	{
 		line = get_next_line(fd);
 		printf("%s\n", line);
 		i++;
 	}
 	free(line);
-	//*/
+	*/
 	return (0);
 }	

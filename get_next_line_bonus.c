@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:44:49 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/07/09 17:10:22 by lgomes-o         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:13:01 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_line(char *s)
 {
@@ -89,15 +89,15 @@ char	*read_buffer(int fd, char *subbuf)
 
 char	*get_next_line(int fd)
 {
-	static char	*subbuf;
+	static char	*subbuf[FD_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_MAX)
 		return (0);
-	subbuf = read_buffer(fd, subbuf);
-	if (!subbuf)
+	subbuf[fd] = read_buffer(fd, subbuf[fd]);
+	if (!subbuf[fd])
 		return (NULL);
-	line = get_line(subbuf);
-	subbuf = get_subbuf(subbuf);
+	line = get_line(subbuf[fd]);
+	subbuf[fd] = get_subbuf(subbuf[fd]);
 	return (line);
 }	

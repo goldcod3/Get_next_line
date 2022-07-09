@@ -5,3 +5,5 @@ Resume: The objective of this project is simple:
 to program a function that returns a line read from a file descriptor.
 
 Proyect in progress.
+
+![lgomes-o's 42 get_next_line Score](https://badge42.vercel.app/api/v2/cl4osmqtg006109jvtxcd7k3u/project/2646255)

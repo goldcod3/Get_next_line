@@ -3,25 +3,17 @@
 
 int	main(void)
 {
-	size_t	i;
 	int		fd;
 	char	*line;
 	
-	i = 0;
 	fd = 0;
-	fd = open("/Users/lgomes-o/Documents/repos/get_next_line/dic.txt", O_RDONLY);
-
+	fd = open("/Users/lgomes-o/Documents/repos/get_next_line/files/multiple_nlx5", O_RDONLY);
 	line = get_next_line(fd);
-	printf("%s\n", line);
-	free(line);
-	/*
-	while (i < 3)
+	while (line != NULL)
 	{
+//		printf("line: -->%s", line);
 		line = get_next_line(fd);
-		printf("%s\n", line);
-		i++;
 	}
 	free(line);
-	*/
 	return (0);
 }	

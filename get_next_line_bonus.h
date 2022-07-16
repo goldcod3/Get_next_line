@@ -6,7 +6,7 @@
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:45:06 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/07/09 18:12:38 by lgomes-o         ###   ########.fr       */
+/*   Updated: 2022/07/16 13:50:20 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-
 
 size_t	ft_strlen(char *str);
 void	ft_bzero(void *str, size_t len);

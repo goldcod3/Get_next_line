@@ -6,7 +6,7 @@
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:44:49 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/07/16 09:29:26 by lgomes-o         ###   ########.fr       */
+/*   Updated: 2022/07/16 13:51:45 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ char	*get_line(char *s)
 
 char	*get_subbuf(char *buf)
 {
-	char	*subbuf;
-	size_t	i;
-	size_t	j;
+	char		*subbuf;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
 	while (buf[i] && buf[i] != '\n')

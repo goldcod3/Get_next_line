@@ -6,7 +6,7 @@
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:39:28 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/07/09 18:01:32 by lgomes-o         ###   ########.fr       */
+/*   Updated: 2022/07/16 13:53:10 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_strlen(char *str)
 
 void	ft_bzero(void *str, size_t len)
 {
-	char	*tmp;
+	char		*tmp;
 	size_t		i;
 
 	i = 0;
@@ -75,7 +75,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	j;
 
 	t_len = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *) malloc((t_len + 1) * sizeof(char));	
+	str = (char *) malloc((t_len + 1) * sizeof(char));
 	if (!s1 || !s2 || !str)
 		return (NULL);
 	i = 0;

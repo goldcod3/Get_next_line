@@ -6,7 +6,7 @@
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:44:49 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/07/09 17:10:22 by lgomes-o         ###   ########.fr       */
+/*   Updated: 2022/07/16 09:30:02 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,13 @@ char	*read_buffer(int fd, char *subbuf)
 	if (!buf)
 		return (NULL);
 	n_bytes = 1;
-	while (!ft_strchr(buf, '\n') && n_bytes > 0)
+	while (!ft_strchr(buf, '\n') && n_bytes != 0)
 	{
 		n_bytes = read(fd, buf, BUFFER_SIZE);
 		if (n_bytes == -1)
 		{
 			free(buf);
+			free(subbuf);
 			return (NULL);
 		}
 		buf[n_bytes] = 0;
@@ -93,7 +94,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
+		return (NULL);
 	subbuf = read_buffer(fd, subbuf);
 	if (!subbuf)
 		return (NULL);
